@@ -1,0 +1,149 @@
+name: bookman-go
+
+services:
+
+  gateway:
+    build:
+      context: ../gateway
+      dockerfile: Dockerfile
+    ports:
+      - "${GATEWAY_PORT:-80}:80"
+    container_name: gateway-bookmango
+    networks:
+      - bookman-network
+    depends_on:
+      - user-service
+
+  user-service:
+    build: 
+      context: ../user-service
+      dockerfile: Dockerfile.user.dev
+    container_name: user-service-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${USER_SERVICE_GRPC_PORT:-50051}:${USER_SERVICE_GRPC_PORT:-50051}"
+      - "${USER_SERVICE_REST_PORT:-4001}:${USER_SERVICE_REST_PORT:-4001}"
+    depends_on:
+      - user-postgres
+    volumes:
+      - ./../user-service:/app
+    env_file:
+      - .env
+
+  user-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${USER_POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${USER_POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${USER_POSTGRES_DB:-bookman_userdb}
+    container_name: user-postgres-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${USER_POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - user-postgres-data:/var/lib/postgresql/data
+
+  author-service:
+    build: 
+      context: ../author-service
+      dockerfile: Dockerfile.author.dev
+    container_name: author-service-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${AUTHOR_SERVICE_GRPC_PORT:-50052}:${AUTHOR_SERVICE_GRPC_PORT:-50052}"
+      - "${AUTHOR_SERVICE_REST_PORT:-4002}:${AUTHOR_SERVICE_REST_PORT:-4002}"
+    depends_on:
+      - author-postgres
+    volumes:
+      - ./../author-service:/app
+    env_file:
+      - .env
+
+  author-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${AUTHOR_POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${AUTHOR_POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${AUTHOR_POSTGRES_DB:-bookman_authordb}
+    container_name: author-postgres-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${AUTHOR_POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - author-postgres-data:/var/lib/postgresql/data
+
+  book-service:
+    build: 
+      context: ../book-service
+      dockerfile: Dockerfile.book.dev
+    container_name: book-service-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${BOOK_SERVICE_GRPC_PORT:-50053}:${BOOK_SERVICE_GRPC_PORT:-50053}"
+      - "${BOOK_SERVICE_REST_PORT:-4003}:${BOOK_SERVICE_REST_PORT:-4003}"
+    depends_on:
+      - book-postgres
+    volumes:
+      - ./../book-service:/app
+    env_file:
+      - .env
+
+  book-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${BOOK_POSTGRES_BOOK:-postgres}
+      POSTGRES_PASSWORD: ${BOOK_POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${BOOK_POSTGRES_DB:-bookman_bookdb}
+    container_name: book-postgres-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${BOOK_POSTGRES_PORT:-5435}:5432"
+    volumes:
+      - book-postgres-data:/var/lib/postgresql/data
+
+  category-service:
+    build: 
+      context: ../category-service
+      dockerfile: Dockerfile.category.dev
+    container_name: category-service-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${CATEGORY_SERVICE_GRPC_PORT:-50054}:${CATEGORY_SERVICE_GRPC_PORT:-50054}"
+      - "${CATEGORY_SERVICE_REST_PORT:-4004}:${CATEGORY_SERVICE_REST_PORT:-4004}"
+    depends_on:
+      - category-postgres
+    volumes:
+      - ./../category-service:/app
+    env_file:
+      - .env
+
+  category-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${CATEGORY_POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${CATEGORY_POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${CATEGORY_POSTGRES_DB:-bookman_bookdb}
+    container_name: category-postgres-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${CATEGORY_POSTGRES_PORT:-5436}:5432"
+    volumes:
+      - category-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  user-postgres-data:
+  author-postgres-data:
+  book-postgres-data:
+  category-postgres-data:
+
+networks:
+  bookman-network:
+    driver: bridge

@@ -1,0 +1,143 @@
+name: bookman-go
+
+services:
+
+  load-balancer-bookmango:
+    build:
+      context: ../gateway
+      dockerfile: Dockerfile
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+    ports:
+      - "50061:50051" # Expose gRPC port
+      - "4011:4001"   # Expose HTTP REST port
+    networks:
+      - bookman-network
+    depends_on:
+      - user-service
+
+  user-service:
+    build: 
+      context: ../user-service
+      dockerfile: Dockerfile
+    networks:
+      - bookman-network
+    depends_on:
+      - user-postgres
+    volumes:
+      - user-public-data:/apps/public
+    ports:
+      - "50051"
+      - "4001"
+    environment:
+      USER_POSTGRES_USER: ${USER_POSTGRES_USER}
+      USER_POSTGRES_PASSWORD: ${USER_POSTGRES_PASSWORD}
+      USER_POSTGRES_DB: ${USER_POSTGRES_DB}
+      USER_POSTGRES_PORT: ${USER_POSTGRES_PORT}
+      USER_POSTGRES_HOST: ${USER_POSTGRES_HOST}
+      GATEWAY_PORT: ${GATEWAY_PORT}
+      USER_SERVICE_GRPC_PORT: ${USER_SERVICE_GRPC_PORT}
+      USER_SERVICE_REST_PORT: ${USER_SERVICE_REST_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+
+  user-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${POSTGRES_DB:-bookman_userdb}
+    container_name: postgres-prod-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - user-postgres-data:/var/lib/postgresql/data
+
+  author-service:
+    build: 
+      context: ../author-service
+      dockerfile: Dockerfile
+    networks:
+      - bookman-network
+    depends_on:
+      - author-postgres
+    volumes:
+      - author-public-data:/apps/public
+    ports:
+      - "50051"
+      - "4001"
+    environment:
+      USER_POSTGRES_USER: ${USER_POSTGRES_USER}
+      USER_POSTGRES_PASSWORD: ${USER_POSTGRES_PASSWORD}
+      USER_POSTGRES_DB: ${USER_POSTGRES_DB}
+      USER_POSTGRES_PORT: ${USER_POSTGRES_PORT}
+      USER_POSTGRES_HOST: ${USER_POSTGRES_HOST}
+      GATEWAY_PORT: ${GATEWAY_PORT}
+      USER_SERVICE_GRPC_PORT: ${USER_SERVICE_GRPC_PORT}
+      USER_SERVICE_REST_PORT: ${USER_SERVICE_REST_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+
+  author-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${POSTGRES_DB:-bookman_authordb}
+    container_name: postgres-prod-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - author-postgres-data:/var/lib/postgresql/data
+
+  book-service:
+    build: 
+      context: ../book-service
+      dockerfile: Dockerfile
+    networks:
+      - bookman-network
+    depends_on:
+      - book-postgres
+    volumes:
+      - book-public-data:/apps/public
+    ports:
+      - "50051"
+      - "4001"
+    environment:
+      USER_POSTGRES_USER: ${USER_POSTGRES_USER}
+      USER_POSTGRES_PASSWORD: ${USER_POSTGRES_PASSWORD}
+      USER_POSTGRES_DB: ${USER_POSTGRES_DB}
+      USER_POSTGRES_PORT: ${USER_POSTGRES_PORT}
+      USER_POSTGRES_HOST: ${USER_POSTGRES_HOST}
+      GATEWAY_PORT: ${GATEWAY_PORT}
+      USER_SERVICE_GRPC_PORT: ${USER_SERVICE_GRPC_PORT}
+      USER_SERVICE_REST_PORT: ${USER_SERVICE_REST_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+
+  book-postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${POSTGRES_DB:-bookman_bookdb}
+    container_name: postgres-prod-bookmango
+    networks:
+      - bookman-network
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - book-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  user-postgres-data:
+  user-public-data:
+  author-postgres-data:
+  author-public-data:
+  book-postgres-data:
+  book-public-data:
+
+networks:
+  bookman-network:
+    driver: bridge
