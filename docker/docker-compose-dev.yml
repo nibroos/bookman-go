@@ -8,6 +8,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${GATEWAY_PORT:-80}:80"
+      - "4011:4011"
+      - "4012:4012"
+      - "4013:4013"
+      - "4014:4014"
     container_name: gateway-bookmango
     networks:
       - bookman-network
@@ -21,9 +25,6 @@ services:
     container_name: user-service-bookmango
     networks:
       - bookman-network
-    ports:
-      - "${USER_SERVICE_GRPC_PORT:-50051}:${USER_SERVICE_GRPC_PORT:-50051}"
-      - "${USER_SERVICE_REST_PORT:-4001}:${USER_SERVICE_REST_PORT:-4001}"
     depends_on:
       - user-postgres
     volumes:
@@ -52,9 +53,6 @@ services:
     container_name: author-service-bookmango
     networks:
       - bookman-network
-    ports:
-      - "${AUTHOR_SERVICE_GRPC_PORT:-50052}:${AUTHOR_SERVICE_GRPC_PORT:-50052}"
-      - "${AUTHOR_SERVICE_REST_PORT:-4002}:${AUTHOR_SERVICE_REST_PORT:-4002}"
     depends_on:
       - author-postgres
     volumes:
@@ -83,9 +81,6 @@ services:
     container_name: book-service-bookmango
     networks:
       - bookman-network
-    ports:
-      - "${BOOK_SERVICE_GRPC_PORT:-50053}:${BOOK_SERVICE_GRPC_PORT:-50053}"
-      - "${BOOK_SERVICE_REST_PORT:-4003}:${BOOK_SERVICE_REST_PORT:-4003}"
     depends_on:
       - book-postgres
     volumes:
@@ -114,9 +109,6 @@ services:
     container_name: category-service-bookmango
     networks:
       - bookman-network
-    ports:
-      - "${CATEGORY_SERVICE_GRPC_PORT:-50054}:${CATEGORY_SERVICE_GRPC_PORT:-50054}"
-      - "${CATEGORY_SERVICE_REST_PORT:-4004}:${CATEGORY_SERVICE_REST_PORT:-4004}"
     depends_on:
       - category-postgres
     volumes:
