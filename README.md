@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-  Backend E-Learning
+  Backend Book Management
   <br>
 </h1>
 
@@ -64,11 +64,16 @@ Change the 'version' column name on schema_migrations to latest succeed migratio
 ### 📗 API Document
 All endpoints stored in  `-.json`
 
-<h1 align="center">
-    <br>
-  Features
-  <br>
-</h1>
 
-Feel free to ask if you have any questions or need more details!
-
+## 📝 Notes
+- Projek ini sebagian besar hanya copy dari projek yang sudah saya kerjakan, hanya saya rubah entitasnya, struktur terinspirasi dari laravel & nest js, menggunakan MVC. [Referensi Projek E-Learning](git@github.com:nibroos/bookman-go.git)
+- Hanya ada CRUD rest API, autentikasi & otorisasi JWT.
+- migrasi dan seeder sudah ada sesuai arahan diatas, kalau gagal, bisa eksekusi manual krn pakai .sql kalau perlu.
+- /api/v1/user, /api/v1/author dll, bisa dilihat di routes.go. [Host production elearning](https://api-elearning-service.nibros.tech/api/v1)
+- Docker development & deploy manual, belum upload docker registry. developement: docker compose -f docker/docker-compose-dev.yml up -d
+- belum ada grpc, unit test, replikasi
+- rencananya saya mau implement grpc untuk mengambil list relasi, misal pada list book ada relasi dg author, disitu saya ambil list array untuk diambil dari author service. tapi sebenarnya bisa juga diimplementasikan menggunakan jsonb yg diisi pada saat user input buku baru, lalu ditampilkan tanpa grpc
+- stock management, rencananya saya implement seperti in out barang pada umumnya ya, lalu ada stok opname di akhir bulan atau simulasi menggunakan range date
+- soal scalling kalau yang dimaksud replikasi server, diprojek lain saya yg struktur nya spt ini sudah bisa dengan docker compose up --scale user-service=2. nanti nya akan otomatis scalling dengan bantuan docker nginx gateway. bisa dilihat nginx.conf
+- jujur, saya baru membaca challange nya hari selasa, untuk pengerjaannya pagi 2024-11-26, hari jam 3. jadi mohon maaf krn kesibukan di kantor saya sekarang hasilnya kurang maksimal.
+- terima kasih atas kesempatan ini, saya berharap bisa bergabung dengan tim anda, dan saya akan belajar lebih keras lagi.
