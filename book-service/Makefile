@@ -72,7 +72,7 @@ endif
 	psql $(DB_URL) -f /seeders/$(file)
 
 .PHONY: seed-run-prod
-seed-run:
+seed-run-prod:
 ifndef file
 	$(error file is undefined. Usage: make seed-run file=<seeder_file>)
 endif
