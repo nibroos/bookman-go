@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE
+  books DROP COLUMN version;
+
+COMMIT;

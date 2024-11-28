@@ -59,7 +59,7 @@ type BookDetailDTO struct {
 	Description   string     `json:"description" db:"description"`
 	CategoryID    uint       `json:"category_id" db:"category_id"`
 	AuthorID      uint       `json:"author_id" db:"author_id"`
-	CreatedByID   uint       `json:"created_by_id" db:"created_by_id"`
+	CreatedByID   *uint      `json:"created_by_id" db:"created_by_id"`
 	UpdatedByID   *uint      `json:"updated_by_id" db:"updated_by_id"`
 	CreatedByName *string    `json:"created_by_name" db:"created_by_name"`
 	UpdatedByName *string    `json:"updated_by_name" db:"updated_by_name"`

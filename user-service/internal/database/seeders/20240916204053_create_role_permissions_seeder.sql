@@ -1,3 +1,5 @@
+BEGIN;
+
 INSERT INTO
   pools (
     group1_id,

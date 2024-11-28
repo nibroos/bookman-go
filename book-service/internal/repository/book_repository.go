@@ -123,7 +123,7 @@ func (r *BookRepository) GetBookByID(ctx context.Context, params *dtos.GetBookPa
 	var book dtos.BookDetailDTO
 	// deletedAt := params.IsDeleted
 
-	query := `SELECT e.*
+	query := `SELECT e.id, e.name, e.description, e.category_id, e.author_id, e.created_at, e.updated_at, e.deleted_at
 
 	FROM books e
 	WHERE 1=1`

@@ -22,7 +22,8 @@ func NewBookStoreRequest() *BookStoreRequest {
 func (r *BookStoreRequest) Validate(req *dtos.CreateBookRequest, ctx context.Context) map[string]string {
 	// utils.DD(req)
 	rules := govalidator.MapData{
-		"name":        []string{"required", "unique:authors,name"},
+		"name": []string{"required"},
+		// "name":        []string{"required", "unique:authors,name"},
 		"description": []string{},
 		"author_id":   []string{"required"},
 		"category_id": []string{},

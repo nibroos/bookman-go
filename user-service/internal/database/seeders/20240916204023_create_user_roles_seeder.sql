@@ -1,3 +1,5 @@
+BEGIN;
+
 -- Insert user-role relationships into pools table
 INSERT INTO
   pools (

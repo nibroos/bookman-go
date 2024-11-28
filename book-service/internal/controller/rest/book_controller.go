@@ -144,7 +144,7 @@ func (c *BookController) UpdateBook(ctx *fiber.Ctx) error {
 		Description: req.Description,
 		AuthorID:    req.AuthorID,
 		CategoryID:  req.CategoryID,
-		CreatedByID: &existingBook.CreatedByID,
+		CreatedByID: existingBook.CreatedByID,
 		UpdatedByID: &userID,
 		CreatedAt:   existingBook.CreatedAt,
 	}

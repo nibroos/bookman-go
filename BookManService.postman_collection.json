@@ -1,0 +1,1413 @@
+{
+	"info": {
+		"_postman_id": "2d62600e-1f73-4cb4-9766-52004853117c",
+		"name": "BookManService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20550982"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "/users/index-users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\": 1,\n    // \"global\": \"Nibros 17\",\n    \"name\": \"\",\n    \"email\": \"\",\n    \"username\": \"\",\n    \"per_page\": \"1\",\n    \"order_column\": \"\",\n    \"order_direction\": \"desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/users/index-user",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"users",
+								"index-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/index-users filter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"page\": 1,\n    \"global\": \"user114@example\",\n    \"name\": \"\",\n    \"per_page\": \"10\",\n    \"order_column\": \"\",\n    \"order_direction\": \"desc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/index-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"index-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 26 Oct 2024 14:48:14 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "215",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 69,\n            \"username\": null,\n            \"name\": \"Nibros 24\",\n            \"email\": \"user114@example.com\"\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"Users fetched successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						},
+						{
+							"name": "/users/index-users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"page\": 1,\n    \"global\": \"\",\n    \"name\": \"\",\n    \"per_page\": \"10\",\n    \"order_column\": \"\",\n    \"order_direction\": \"desc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/index-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"index-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 26 Oct 2024 14:51:06 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "891",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 69,\n            \"username\": null,\n            \"name\": \"Nibros 24\",\n            \"email\": \"user114@example.com\"\n        },\n        {\n            \"id\": 68,\n            \"username\": null,\n            \"name\": \"Nibros 23\",\n            \"email\": \"user113@example.com\"\n        },\n        {\n            \"id\": 67,\n            \"username\": null,\n            \"name\": \"Nibros 22\",\n            \"email\": \"user112@example.com\"\n        },\n        {\n            \"id\": 66,\n            \"username\": null,\n            \"name\": \"Nibros 21\",\n            \"email\": \"user111@example.com\"\n        },\n        {\n            \"id\": 65,\n            \"username\": null,\n            \"name\": \"Nibros 20\",\n            \"email\": \"user110@example.com\"\n        },\n        {\n            \"id\": 64,\n            \"username\": null,\n            \"name\": \"Nibros 19\",\n            \"email\": \"user109@example.com\"\n        },\n        {\n            \"id\": 63,\n            \"username\": null,\n            \"name\": \"Nibros 18\",\n            \"email\": \"user108@example.com\"\n        },\n        {\n            \"id\": 62,\n            \"username\": null,\n            \"name\": \"Nibros 17\",\n            \"email\": \"user107@example.com\"\n        },\n        {\n            \"id\": 61,\n            \"username\": null,\n            \"name\": \"Nibros 16\",\n            \"email\": \"user106@example.com\"\n        },\n        {\n            \"id\": 60,\n            \"username\": null,\n            \"name\": \"Nibros 12\",\n            \"email\": \"user105@example.com\"\n        }\n    ],\n    \"meta\": {\n        \"total\": 23,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 3\n    },\n    \"message\": \"Users fetched successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/show-users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\": 99\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/users/show-user",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"users",
+								"show-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/show-users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/show-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"show-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:31:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "426"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Nibros\",\n            \"username\": \"nibros\",\n            \"email\": \"nibros@example.com\",\n            \"address\": \"123 Main St\",\n            \"password\": \"$2a$06$8UIktwEp7FG708l5uyxSIOtHJccQdPE24kgcs/cWDQqhA8cMjZ4V.\",\n            \"roles\": [\n                \"superadmin\"\n            ],\n            \"permissions\": [\n                \"create_users\",\n                \"read_users\",\n                \"update_users\",\n                \"delete_users\"\n            ],\n            \"created_at\": null\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"User fetched successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/create-users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nibros Test\",\n    \"username\": \"\",\n    \"email\": \"test125@gmail.com\",\n    // \"email\": \"user10@example.com\",\n    \"password\": \"bambang1!\",\n    \"role_ids\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/users/create-user",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"users",
+								"create-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/create-users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Nibros Test\",\n    \"username\": \"\",\n    \"email\": \"test1234@gmail.com\",\n    // \"email\": \"user10@example.com\",\n    \"password\": \"bambang1!\",\n    \"role_ids\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/create-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"create-user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 27 Oct 2024 05:16:00 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "399",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 70,\n        \"name\": \"Nibros Test\",\n        \"username\": null,\n        \"email\": \"test1234@gmail.com\",\n        \"address\": null,\n        \"password\": \"$2a$10$K17Z2mX96eeHrC4qVM6NZOahtE1WgqAgU1B3rNS6F34rVv1ddZ.oW\",\n        \"roles\": [\n            \"superadmin\"\n        ],\n        \"permissions\": [\n            \"create_users\",\n            \"read_users\",\n            \"update_users\",\n            \"delete_users\"\n        ]\n    },\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"User created successfully\",\n    \"status\": 201,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/update-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 72,\n    \"name\": \"Nibros 26\",\n    \"username\": \"user117\", \n    // \"email\": \"testa@gmail.com\",\n    \"email\": \"user117@example.com\",\n    \"role_ids\": [2]\n    // \"password\": \"bambang1!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/users/update-user",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"users",
+								"update-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/update-user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 71,\n    \"name\": \"Nibros 26\",\n    \"username\": \"user116\", \n    // \"email\": \"testa@gmail.com\",\n    \"email\": \"user116@example.com\",\n    \"role_ids\": [2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/update-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"update-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 08 Nov 2024 12:21:58 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "363",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 71,\n        \"name\": \"Nibros 26\",\n        \"username\": \"user116\",\n        \"email\": \"user116@example.com\",\n        \"address\": null,\n        \"password\": \"$2a$10$GdpxUd5Qzxv09VbxGhDtz.G0HtoPIJWAliyHlue4XOS4hGRu0IcG6\",\n        \"roles\": [\n            \"student\"\n        ],\n        \"permissions\": null,\n        \"created_at\": null\n    },\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"User updated successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/delete-users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\": 99\n    \"id\": 70\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/users/delete-user",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"users",
+								"delete-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/delete-users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 70\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/delete-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"delete-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 27 Oct 2024 05:17:26 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"total\": 0,\n        \"per_page\": 0,\n        \"current_page\": 0,\n        \"last_page\": 0\n    },\n    \"message\": \"User deleted successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/restore-users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\": 99\n    \"id\": 70\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/users/restore-user",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"users",
+								"restore-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/delete-users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 70\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/delete-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"delete-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 27 Oct 2024 05:17:26 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"total\": 0,\n        \"per_page\": 0,\n        \"current_page\": 0,\n        \"last_page\": 0\n    },\n    \"message\": \"User deleted successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						},
+						{
+							"name": "/users/restore-users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 70\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/users/restore-user",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"users",
+										"restore-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 21:13:52 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"total\": 0,\n        \"per_page\": 0,\n        \"current_page\": 0,\n        \"last_page\": 0\n    },\n    \"message\": \"User restored successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{JWT_TOKEN}}",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "/books/index-book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\": 1,\n    \"global\": \"Great Gatsby\",\n    \"per_page\": \"10\",\n    \"order_column\": \"\",\n    \"order_direction\": \"desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/books/index-book",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"books",
+								"index-book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/books/index-book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"page\": 1,\n    \"global\": \"Great Gatsby\",\n    \"per_page\": \"10\",\n    \"order_column\": \"\",\n    \"order_direction\": \"desc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BOOK_SV_REST}}/books/index-book",
+									"host": [
+										"{{BOOK_SV_REST}}"
+									],
+									"path": [
+										"books",
+										"index-book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:29:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "364"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"name\": \"The Great Gatsby\",\n            \"description\": \"Desc 2\",\n            \"category_id\": 2,\n            \"author_id\": 2,\n            \"created_by_name\": null,\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": \"2024-10-30T04:35:51Z\",\n            \"deleted_at\": null\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"Books fetched successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/books/test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\": 1,\n    \"module_id\": 1,\n    \"per_page\": \"10\",\n    \"order_column\": \"\",\n    \"order_directionter\": \"desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/book/test",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"book",
+								"test"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/educations/index-education",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"page\": 1,\n    \"module_id\": 2,\n    \"per_page\": \"10\",\n    \"order_column\": \"\",\n    \"order_directionter\": \"desc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{USER_SV_REST}}/educations/index-education",
+									"host": [
+										"{{USER_SV_REST}}"
+									],
+									"path": [
+										"educations",
+										"index-education"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 29 Oct 2024 22:16:10 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2230",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 11,\n            \"name\": \"Pengeanlan NUXT\",\n            \"description\": \"Desc Chapter 1\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Chapter 1\",\n            \"description\": \"Desc Chapter 1\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Chapter 2\",\n            \"description\": \"Desc Chapter 2\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Chapter 3\",\n            \"description\": \"Desc Chapter 3\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Chapter 4\",\n            \"description\": \"Desc Chapter 4\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 16,\n            \"name\": \"Chapter 5\",\n            \"description\": \"Desc Chapter 5\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 17,\n            \"name\": \"Chapter 6\",\n            \"description\": \"Desc Chapter 6\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Chapter 7\",\n            \"description\": \"Desc Chapter 7\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Chapter 8\",\n            \"description\": \"Desc Chapter 8\",\n            \"module_id\": 2,\n            \"module_name\": \"B\",\n            \"text_materi\": \"\",\n            \"created_by_name\": \"Nibros\",\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-10-30T04:35:51Z\",\n            \"updated_at\": null,\n            \"deleted_at\": null\n        }\n    ],\n    \"meta\": {\n        \"total\": 9,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"Educations fetched successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/books/show-book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\": 99\n    \"id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/books/show-book",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"books",
+								"show-book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/books/show-book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BOOK_SV_REST}}/books/show-book",
+									"host": [
+										"{{BOOK_SV_REST}}"
+									],
+									"path": [
+										"books",
+										"show-book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:43:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "421"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"Book 1\",\n            \"description\": \"Book 1 description\",\n            \"category_id\": 0,\n            \"author_id\": 1,\n            \"created_by_id\": null,\n            \"updated_by_id\": null,\n            \"created_by_name\": null,\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-11-28T01:43:10.917309Z\",\n            \"updated_at\": \"2024-11-28T01:43:10.917705Z\",\n            \"deleted_at\": null\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"Book fetched successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/books/create-book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Book 1\",\n    \"description\": \"Book 1 description\",\n    \"author_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/books/create-book",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"books",
+								"create-book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/books/create-book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Book 2\",\n    \"description\": \"Book 2 description\",\n    \"author_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BOOK_SV_REST}}/books/create-book",
+									"host": [
+										"{{BOOK_SV_REST}}"
+									],
+									"path": [
+										"books",
+										"create-book"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:44:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "421"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"Book 2\",\n            \"description\": \"Book 2 description\",\n            \"category_id\": 0,\n            \"author_id\": 1,\n            \"created_by_id\": null,\n            \"updated_by_id\": null,\n            \"created_by_name\": null,\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-11-28T01:44:03.756286Z\",\n            \"updated_at\": \"2024-11-28T01:44:03.757124Z\",\n            \"deleted_at\": null\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"Book created successfully\",\n    \"status\": 201,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/books/update-book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"name\": \"Book 2.1\",\n    \"description\": \"Book 2.1 description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/books/update-book",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"books",
+								"update-book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/books/update-book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"name\": \"Book 2.1\",\n    \"author_id\": 1,\n    \"description\": \"Book 2.1 description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BOOK_SV_REST}}/books/update-book",
+									"host": [
+										"{{BOOK_SV_REST}}"
+									],
+									"path": [
+										"books",
+										"update-book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:47:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "425"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"Book 2.1\",\n            \"description\": \"Book 2.1 description\",\n            \"category_id\": 0,\n            \"author_id\": 1,\n            \"created_by_id\": null,\n            \"updated_by_id\": null,\n            \"created_by_name\": null,\n            \"updated_by_name\": null,\n            \"created_at\": \"2024-11-28T01:44:03.756286Z\",\n            \"updated_at\": \"2024-11-28T01:47:57.092685Z\",\n            \"deleted_at\": null\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"last_page\": 1\n    },\n    \"message\": \"Book updated successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/books/delete-book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\": 99\n    \"id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/books/delete-book",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"books",
+								"delete-book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/books/delete-book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 4\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BOOK_SV_REST}}/books/delete-book",
+									"host": [
+										"{{BOOK_SV_REST}}"
+									],
+									"path": [
+										"books",
+										"delete-book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:49:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"total\": 0,\n        \"per_page\": 0,\n        \"current_page\": 0,\n        \"last_page\": 0\n    },\n    \"message\": \"Book deleted successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/books/restore-book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\": 99\n    \"id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BOOK_SV_REST}}/books/restore-book",
+							"host": [
+								"{{BOOK_SV_REST}}"
+							],
+							"path": [
+								"books",
+								"restore-book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/books/restore-book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"id\": 99\n    \"id\": 4\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BOOK_SV_REST}}/books/restore-book",
+									"host": [
+										"{{BOOK_SV_REST}}"
+									],
+									"path": [
+										"books",
+										"restore-book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.2"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Nov 2024 01:49:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"total\": 0,\n        \"per_page\": 0,\n        \"current_page\": 0,\n        \"last_page\": 0\n    },\n    \"message\": \"Book restored successfully\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{JWT_TOKEN}}",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "/auth/login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"email\": \"user117@example.com\",\n    // \"password\": \"bambang1!\"\n    \"email\": \"nibros@example.com\",\n    \"password\": \"admel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/auth/login",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/auth/register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nibros 25\",\n    \"username\": \"user117\", \n    // \"email\": \"testa@gmail.com\",\n    \"email\": \"user117@example.com\",\n    \"password\": \"bambang1!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{USER_SV_REST}}/auth/register",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/seeders/run",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{USER_SV_REST}}/seeders/run",
+							"host": [
+								"{{USER_SV_REST}}"
+							],
+							"path": [
+								"seeders",
+								"run"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nibros 25\",\n    \"username\": \"user117\", \n    // \"email\": \"testa@gmail.com\",\n    \"email\": \"user117@example.com\",\n    \"password\": \"bambang1!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{USER_SV_REST}}/users/test",
+					"host": [
+						"{{USER_SV_REST}}"
+					],
+					"path": [
+						"users",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APP_URL",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "USER_SV_REST",
+			"value": "http://localhost:4001/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "JWT_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzI1NjkxMzUsInVzZXJfaWQiOjcyfQ.hLrPtcA3w9wJT_apvUZ9uoXvmT09_8mIrzOCyBMebxM",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "JWT_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzMwMTYzODAsInBlcm1pc3Npb25zIjpbImNyZWF0ZV91c2VycyIsInJlYWRfdXNlcnMiLCJ1cGRhdGVfdXNlcnMiLCJkZWxldGVfdXNlcnMiXSwicm9sZXMiOlsic3VwZXJhZG1pbiJdLCJ1c2VyX2lkIjoxfQ.GE7TFi4-414pN-14waSTIJq_KrpWtJ5Hqu04E8o1wAQ",
+			"type": "string"
+		}
+	]
+}

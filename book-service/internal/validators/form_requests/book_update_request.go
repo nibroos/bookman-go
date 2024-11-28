@@ -23,7 +23,7 @@ func NewBookUpdateRequest() *BookUpdateRequest {
 func (r *BookUpdateRequest) Validate(req *dtos.UpdateBookRequest, ctx context.Context) map[string]string {
 	rules := govalidator.MapData{
 		"name":        []string{"required", fmt.Sprintf("unique_ig:books,name,%d", req.ID)},
-		"description": []string{""},
+		"description": []string{},
 		"author_id":   []string{"required"},
 		"category_id": []string{},
 	}
